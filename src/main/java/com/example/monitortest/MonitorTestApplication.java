@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MonitorTestApplication {
 
     public static void main(String[] args) {
+        System.out.println("test line added!");
         SpringApplication.run(MonitorTestApplication.class, args);
     }
 
