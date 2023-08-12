@@ -8,6 +8,7 @@ public class MonitorTestApplication {
 
     public static void main(String[] args) {
         System.out.println("test line added!");
+        System.out.println("test line2 added!");
         SpringApplication.run(MonitorTestApplication.class, args);
     }
 
