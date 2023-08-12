@@ -1,4 +1,4 @@
-name: Build Docker Image
+name: gradle build
 
 on:
   push:
@@ -23,6 +23,5 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
       - name: Build with Gradle
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: build
+        working-directory: backend
+        run: ./gradlew build
