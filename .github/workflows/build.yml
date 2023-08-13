@@ -1,14 +1,6 @@
 name: Gradle Build
 
 on:
-  push:
-    branches: [ dev ]
-    paths-ignore:
-      - '.gitignore'
-      - '.dockerignore'
-      - 'readme.md'
-  pull_request:
-    branches: [ dev ]
   workflow_dispatch:
     inputs:
       logLevel:
@@ -17,6 +9,14 @@ on:
         default: 'warning'
       tags:
         description: 'Test scenario tags'
+  push:
+    branches: [ dev ]
+    paths-ignore:
+      - '.gitignore'
+      - '.dockerignore'
+      - 'readme.md'
+  pull_request:
+    branches: [ dev ]
 
 jobs:
   build-with-gradle:
