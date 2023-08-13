@@ -7,6 +7,6 @@ files:
 
 hooks:
   AfterInstall:
-    - location: deploy/scripts/restart-server.sh
+    - location: backend/deploy/scripts/restart-server.sh
       timeout: 300
       runas: root
