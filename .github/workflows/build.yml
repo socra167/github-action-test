@@ -44,7 +44,7 @@ jobs:
         env:
           REGION: ap-northreast-2
           S3_NAME: github-actions-codebuild-s3
-        run: aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://{ S3_NAME }/$GITHUB_SHA.zip
+        run: aws s3 cp --region ap-northeast-2 ./$GITHUB_SHA.zip s3://$S3_NAME/$GITHUB_SHA.zip
 
   cd:
     needs: [ci]
@@ -61,7 +61,7 @@ jobs:
           APPLICATION_NAME: codedeploy-app
           DEPLOY_GROUP: codedeploy-group
           S3_NAME: github-actions-codebuild-s3
-        run: aws deploy create-deployment --application-name { APPLICATION_NAME }
+        run: aws deploy create-deployment --application-name $APPLICATION_NAME
           --deployment-config-name CodeDeployDefault.OneAtATime
-          --deployment-group-name { DEPLOY_GROUP }
-          --s3-location bucket={ S3_NAME },bundleType=zip,key=$GITHUB_SHA.zip
+          --deployment-group-name $DEPLOY_GROUP
+          --s3-location bucket=$S3_NAME,bundleType=zip,key=$GITHUB_SHA.zip
