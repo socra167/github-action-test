@@ -1,4 +1,4 @@
-name: gradle build
+name: Gradle Build
 
 on:
   push:
@@ -9,9 +9,17 @@ on:
       - 'readme.md'
   pull_request:
     branches: [ dev ]
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'
 
 jobs:
-  build-docker-image:
+  build-with-gradle:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
