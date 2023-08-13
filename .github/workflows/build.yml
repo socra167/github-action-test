@@ -44,7 +44,7 @@ jobs:
         env:
           REGION: ap-northreast-2
           S3_NAME: github-actions-codebuild-s3
-        run: aws s3 cp --region ${REGION} ./$GITHUB_SHA.zip s3://${S3_NAME}
+        run: aws s3 cp --region ${REGION} --endpoint-url https://s3-website.ap-northeast-2.amazonaws.com ./$GITHUB_SHA.zip s3://${S3_NAME}
 
   cd:
     needs: [ci]
