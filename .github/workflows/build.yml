@@ -60,8 +60,8 @@ jobs:
         env:
           APPLICATION_NAME: codedeploy-app
           DEPLOY_GROUP: codedeploy-group
-          SAVE_LOCATION: /
+          S3_NAME: github-actions-codebuild-s3
         run: aws deploy create-deployment --application-name { APPLICATION_NAME }
           --deployment-config-name CodeDeployDefault.OneAtATime
           --deployment-group-name { DEPLOY_GROUP }
-          --s3-location bucket={ SAVE_LOCATION },bundleType=zip,key=$GITHUB_SHA.zip
+          --s3-location bucket={ S3_NAME },bundleType=zip,key=$GITHUB_SHA.zip
