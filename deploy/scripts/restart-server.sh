@@ -6,7 +6,6 @@ cd $REPOSITORY
 APP_NAME=monitor-test
 JAR_NAME=$(ls $REPOSITORY/build/libs/ | grep '.jar' | tail -n 1)
 JAR_PATH=$REPOSITORY/build/libs/$JAR_NAME
-
 CURRENT_PID=$(pgrep -f $APP_NAME)
 
 if [ -z $CURRENT_PID ] #2
@@ -19,4 +18,4 @@ else
 fi
 
 echo "> $JAR_PATH 배포" #3
-nohup java -jar /home/ec2-user/app/build/libs/monitor-test-0.0.1-SNAPSHOT.jar > /dev/null 2> /dev/null < /dev/null &
+nohup java -jar /home/ec2-user/app/backend/build/libs/monitor-test-0.0.1-SNAPSHOT.jar > /dev/null 2> /dev/null < /dev/null &
